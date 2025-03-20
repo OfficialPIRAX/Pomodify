@@ -12,8 +12,8 @@ function createWindow() {
     minHeight: 600,
     backgroundColor: '#121212',
     webPreferences: {
-      nodeIntegration: true,
-      contextIsolation: false,
+      nodeIntegration: false,
+      contextIsolation: true,
       preload: path.join(__dirname, 'preload.js')
     },
     icon: path.join(__dirname, 'public/icon.png'),

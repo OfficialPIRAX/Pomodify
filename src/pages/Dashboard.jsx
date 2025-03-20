@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import TodoList from '../components/TodoList';
 import PomodoroTimer from '../components/PomodoroTimer';
 import WorkModeToggle from '../components/WorkModeToggle';
@@ -10,22 +10,35 @@ import { XMarkIcon, MinusIcon, ArrowsPointingOutIcon } from '@heroicons/react/24
 function Dashboard() {
   const { isWorkMode } = useWorkModeStore();
 
+  useEffect(() => {
+    console.log('Electron object:', window.electron);
+  }, []);
+
   // Handle window control actions
   const handleMinimize = () => {
+    console.log('Minimize button clicked');
     if (window.electron) {
       window.electron.minimize();
+    } else {
+      console.error('Electron API not available');
     }
   };
 
   const handleMaximize = () => {
+    console.log('Maximize button clicked');
     if (window.electron) {
       window.electron.maximize();
+    } else {
+      console.error('Electron API not available');
     }
   };
 
   const handleClose = () => {
+    console.log('Close button clicked');
     if (window.electron) {
       window.electron.quit();
+    } else {
+      console.error('Electron API not available');
     }
   };
 
