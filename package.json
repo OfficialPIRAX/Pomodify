@@ -6,7 +6,7 @@
   "scripts": {
     "start": "electron .",
     "dev": "concurrently \"vite\" \"electron .\"",
-    "build": "vite build && electron-builder"
+    "build": "vite build && electron-builder --win portable"
   },
   "keywords": [
     "productivity",
@@ -37,5 +37,18 @@
     "vite": "^5.0.8",
     "@vitejs/plugin-react": "^4.2.1",
     "concurrently": "^8.2.2"
+  },
+  "build": {
+    "appId": "com.productivity.dashboard",
+    "productName": "Productivity Dashboard",
+    "files": [
+      "dist/**/*",
+      "main.js",
+      "preload.js"
+    ],
+    "directories": {
+      "output": "build"
+    },
+    "forceCodeSigning": false
   }
 } 
