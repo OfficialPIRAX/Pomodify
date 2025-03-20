@@ -94,7 +94,8 @@
 
 /* Custom window frame controls for frameless window */
 .window-controls {
-  @apply -webkit-app-region-no-drag fixed top-0 right-0 flex items-center p-2 space-x-2;
+  @apply fixed top-0 right-0 flex items-center p-2 space-x-2;
+  -webkit-app-region: no-drag;
 }
 
 .window-controls button {
