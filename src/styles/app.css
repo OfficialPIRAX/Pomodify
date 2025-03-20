@@ -1,0 +1,114 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-background text-white font-sans;
+  }
+}
+
+@layer components {
+  .card {
+    @apply bg-surface rounded-lg shadow-lg p-4;
+  }
+  
+  .btn-primary {
+    @apply btn bg-primary hover:bg-opacity-80 text-white;
+  }
+  
+  .btn-accent {
+    @apply btn bg-accent-red hover:bg-opacity-80 text-white;
+  }
+  
+  .todo-item {
+    @apply flex items-center gap-2 p-3 rounded-lg hover:bg-surface transition-colors;
+  }
+  
+  .todo-item-overdue {
+    @apply border-l-4 border-accent-red;
+  }
+  
+  .todo-item-overplanned {
+    @apply border-l-4 border-gray-500;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-background;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-surface rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-primary bg-opacity-50;
+}
+
+/* Custom styles for React DatePicker to match our dark theme */
+.react-datepicker {
+  @apply bg-surface text-white border-neutral !important;
+}
+
+.react-datepicker-wrapper {
+  @apply w-full;
+}
+
+.react-datepicker__header {
+  @apply bg-neutral text-white border-gray-700 !important;
+}
+
+.react-datepicker__current-month, 
+.react-datepicker-time__header,
+.react-datepicker__day-name {
+  @apply text-white !important;
+}
+
+.react-datepicker__day {
+  @apply text-white hover:bg-primary hover:text-white !important;
+}
+
+.react-datepicker__day--selected {
+  @apply bg-primary text-white !important;
+}
+
+.react-datepicker__time-container,
+.react-datepicker__time-container .react-datepicker__time,
+.react-datepicker__time-container .react-datepicker__time .react-datepicker__time-box {
+  @apply bg-surface text-white border-gray-700 !important;
+}
+
+.react-datepicker__time-container .react-datepicker__time .react-datepicker__time-box ul.react-datepicker__time-list li.react-datepicker__time-list-item {
+  @apply text-white hover:bg-primary !important;
+}
+
+.react-datepicker__time-container .react-datepicker__time .react-datepicker__time-box ul.react-datepicker__time-list li.react-datepicker__time-list-item--selected {
+  @apply bg-primary text-white !important;
+}
+
+/* Custom window frame controls for frameless window */
+.window-controls {
+  @apply -webkit-app-region-no-drag fixed top-0 right-0 flex items-center p-2 space-x-2;
+}
+
+.window-controls button {
+  @apply w-3 h-3 rounded-full focus:outline-none;
+}
+
+.window-close {
+  @apply bg-accent-red hover:bg-opacity-80;
+}
+
+.window-minimize {
+  @apply bg-yellow-500 hover:bg-opacity-80;
+}
+
+.window-maximize {
+  @apply bg-green-500 hover:bg-opacity-80;
+} 
