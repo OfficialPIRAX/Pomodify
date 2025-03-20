@@ -52,31 +52,6 @@ git clone https://github.com/yourusername/productivity-dashboard.git
 cd productivity-dashboard
 npm install
 
-
-### Installation
-
-1. Clone the repository
-```
-git clone https://github.com/OfficialPIRAX/Pomodify.git
-cd pomodify
-```
-
-2. Install dependencies
-```
-npm install
-```
-
-3. Start the development server
-```
-npm run dev
-```
-
-### Build for Production
-
-```
-npm run build
-```
-
 ## License
 
 MIT 
