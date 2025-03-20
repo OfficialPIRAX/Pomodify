@@ -1,52 +1,64 @@
-# Personal Productivity Dashboard with Pomodoro Integration
+# Personal Productivity Dashboard with Pomodoro Integration 🚀  
 
-A dark, minimalistic productivity application with task management and Pomodoro timer features.
+Hey! Das hier ist mein persönliches **Produktivitäts-Dashboard**, das mir hilft, den Fokus zu behalten, meine Arbeit effizient zu erledigen und gleichzeitig meine Fortschritte zu tracken.  
+Warum? Weil ich keine Lust mehr hatte, ständig zwischen zig Apps hin- und herzuwechseln oder mit überladenen Tools zu kämpfen. Ich wollte etwas **Simpel-Effektives**, das einfach funktioniert.  
 
-## Features
+## 🔥 Features  
 
-- **To-Do Lists with Categories**
-  - Work Todos Today (Current tasks)
-  - Forgotten (Overplanned tasks)
-  - Completed (Finished tasks)
-  
-- **Pomodoro Timer with Tracking**
-  - 25-minute work sessions with 5-minute breaks
-  - Progress visualization
-  - Session tracking and statistics
-  
-- **Work Mode Toggle**
-  - Switch between normal and focused work mode
-  - Visual indicators for current mode
-  
-- **Progress Visualization**
-  - Heatmaps for tracking Pomodoro activity
-  - Rank system based on completed Pomodoros
-  - Stats for total focus time
-  
-- **Task Status Management**
-  - Overdue tasks (past deadline)
-  - Overplanned tasks (not completed as scheduled)
+- **To-Do Listen mit Kategorien**  
+  - 📌 **Work Todos Today** – Aktuelle Aufgaben für den Tag  
+  - 🔄 **Forgotten** – Überplante Aufgaben, die ich nicht geschafft habe  
+  - ✅ **Completed** – Alles, was erledigt wurde  
 
-## Technology Stack
+- **🎯 Pomodoro-Timer mit Tracking**  
+  - 25-Minuten-Fokus-Sessions + 5-Minuten-Pausen  
+  - Fortschritts-Visualisierung & Statistiken  
+  - Trackt meine Sessions für langfristige Produktivitäts-Analysen  
 
-- **Frontend**: Electron.js with React + Tailwind CSS + DaisyUI
-- **State Management**: Zustand
-- **Data Storage**: LocalStorage (via Zustand persist)
-- **UI Components**: Custom components with Tailwind styling
+- **💡 Work Mode Toggle**  
+  - Schaltet zwischen normalem & fokussiertem Arbeiten um  
+  - Klare visuelle Indikatoren, wenn ich im Deep-Work-Modus bin  
 
-## Getting Started
+- **📊 Fortschrittsanzeige & Gamification**  
+  - Heatmaps für meine Pomodoro-Aktivität (GitHub-Style)  
+  - Rangsystem basierend auf abgeschlossenen Pomodoros  
+  - Stats für meine gesamte Fokuszeit  
 
-### Prerequisites
+- **⏳ Task-Status & Deadlines**  
+  - 🟥 **Overdue** – Aufgaben, die überfällig sind  
+  - 🟨 **Overplanned** – Geplante, aber nicht abgeschlossene Tasks  
 
-- Node.js (v16 or higher)
-- npm or yarn
+---
+
+## 🛠 Tech Stack  
+
+- **Frontend:** Electron.js + React + Tailwind CSS + DaisyUI  
+- **State Management:** Zustand  
+- **Data Storage:** LocalStorage (via Zustand persist)  
+- **UI-Komponenten:** Custom Components mit Tailwind-Styling  
+
+---
+
+## 🚀 Getting Started  
+
+### **1️⃣ Voraussetzungen**  
+- **Node.js (v16 oder höher)**  
+- **npm oder yarn**  
+
+### **2️⃣ Installation**  
+
+```sh
+git clone https://github.com/yourusername/productivity-dashboard.git
+cd productivity-dashboard
+npm install
+
 
 ### Installation
 
 1. Clone the repository
 ```
-git clone https://github.com/yourusername/productivity-dashboard.git
-cd productivity-dashboard
+git clone https://github.com/OfficialPIRAX/Pomodify.git
+cd pomodify
 ```
 
 2. Install dependencies
@@ -64,13 +76,6 @@ npm run dev
 ```
 npm run build
 ```
-
-## Usage
-
-1. Add tasks to your "Today" list
-2. Start the Pomodoro timer to begin focused work sessions
-3. Complete tasks to earn points and track progress
-4. Toggle Work Mode when you need extra focus
 
 ## License
 
