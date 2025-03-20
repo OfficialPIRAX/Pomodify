@@ -93,23 +93,27 @@
 }
 
 /* Custom window frame controls for frameless window */
+.draggable-region {
+  -webkit-app-region: drag;
+  @apply bg-neutral bg-opacity-90 backdrop-blur-sm border-b border-gray-800;
+}
+
 .window-controls {
-  @apply fixed top-0 right-0 flex items-center p-2 space-x-2;
   -webkit-app-region: no-drag;
 }
 
 .window-controls button {
-  @apply w-3 h-3 rounded-full focus:outline-none;
+  @apply w-4 h-4 rounded-full focus:outline-none flex items-center justify-center hover:opacity-80;
 }
 
 .window-close {
-  @apply bg-accent-red hover:bg-opacity-80;
+  @apply bg-accent-red;
 }
 
 .window-minimize {
-  @apply bg-yellow-500 hover:bg-opacity-80;
+  @apply bg-yellow-500;
 }
 
 .window-maximize {
-  @apply bg-green-500 hover:bg-opacity-80;
+  @apply bg-green-500;
 } 

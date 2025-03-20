@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { usePomodoroStore } from '../hooks/usePomodoroStore';
 import { PlayIcon, PauseIcon, ArrowPathIcon } from '@heroicons/react/24/solid';
-import { useWorkModeStore } from '../hooks/useWorkModeStore';
 
 // Helper function to format time
 const formatTime = (seconds) => {
@@ -23,8 +22,6 @@ function PomodoroTimer() {
     completeSession,
     sessionsToday 
   } = usePomodoroStore();
-
-  const { isWorkMode, setWorkMode } = useWorkModeStore();
   
   // Calculate progress percentage for the circle
   const [progress, setProgress] = useState(100);
@@ -52,15 +49,10 @@ function PomodoroTimer() {
       completeSession();
     }
     
-    // Auto enable work mode when timer is running
-    if (isRunning && !isWorkMode) {
-      setWorkMode(true);
-    }
-    
     return () => {
       if (timerId) clearInterval(timerId);
     };
-  }, [isRunning, timeLeft, mode, tick, completeSession, isWorkMode, setWorkMode]);
+  }, [isRunning, timeLeft, mode, tick, completeSession]);
   
   // Handler for play/pause
   const handlePlayPause = () => {

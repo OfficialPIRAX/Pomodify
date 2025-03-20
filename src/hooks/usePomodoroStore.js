@@ -1,6 +1,21 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
-import { addDays, format, parseISO, startOfDay } from 'date-fns';
+import { 
+  addDays, 
+  format, 
+  parseISO, 
+  startOfDay, 
+  startOfMonth, 
+  endOfMonth, 
+  getDaysInMonth, 
+  isAfter, 
+  isBefore, 
+  isEqual, 
+  getMonth, 
+  getYear,
+  getDate,
+  eachDayOfInterval 
+} from 'date-fns';
 
 // Constants for Pomodoro timer
 const POMODORO_TIME = 25 * 60; // 25 minutes in seconds
@@ -86,32 +101,62 @@ export const usePomodoroStore = create(
       // Get statistics
       getStats: () => {
         const { pomodorosCompleted, sessionsToday, history } = get();
-        const today = format(new Date(), 'yyyy-MM-dd');
+        const now = new Date();
+        const today = format(now, 'yyyy-MM-dd');
         
         // Get total hours
         const totalHours = (pomodorosCompleted * 25) / 60;
         
-        // Get last 30 days of data for heatmap
-        const last30Days = [];
-        const now = new Date();
+        // Get current month's date range
+        const firstDayOfMonth = startOfMonth(now);
+        const lastDayOfMonth = endOfMonth(now);
         
-        for (let i = 29; i >= 0; i--) {
-          const date = format(addDays(startOfDay(now), -i), 'yyyy-MM-dd');
-          const historyEntry = history.find(entry => entry.date === date);
+        // Generate array of all days in current month
+        const daysInMonth = eachDayOfInterval({
+          start: firstDayOfMonth,
+          end: lastDayOfMonth
+        });
+        
+        // Create current month's heatmap data
+        const currentMonthData = daysInMonth.map(day => {
+          const dateStr = format(day, 'yyyy-MM-dd');
+          const historyEntry = history.find(entry => entry.date === dateStr);
           
-          last30Days.push({
-            date,
-            count: historyEntry ? historyEntry.count : 0
-          });
-        }
+          return {
+            date: dateStr,
+            day: getDate(day),
+            count: historyEntry ? historyEntry.count : 0,
+            isToday: dateStr === today
+          };
+        });
         
         return {
           totalPomodoros: pomodorosCompleted,
           todayPomodoros: sessionsToday,
           totalHours,
-          last30Days
+          currentMonth: {
+            name: format(now, 'MMMM'),
+            year: getYear(now),
+            firstDay: firstDayOfMonth,
+            lastDay: lastDayOfMonth,
+            data: currentMonthData
+          }
         };
-      }
+      },
+      
+      // Clear old history data (keep only last 365 days)
+      cleanupHistory: () => set((state) => {
+        const now = new Date();
+        const oneYearAgo = addDays(now, -365);
+        const oneYearAgoStr = format(oneYearAgo, 'yyyy-MM-dd');
+        
+        return {
+          history: state.history.filter(entry => 
+            isAfter(parseISO(entry.date), oneYearAgo) || 
+            isEqual(parseISO(entry.date), oneYearAgo)
+          )
+        };
+      })
     }),
     {
       name: 'pomodoro-storage',
